@@ -183,12 +183,12 @@ int main (int argc, char *argv[])
       if (tables[t].usecount > 1) {
         char* s;
         if (p == tables[t].minline >> 5) {
-          s = (char*) malloc(5+1);
-          sprintf(s, "%02x_%d", p, ++i);
+          s = (char*) malloc(16);
+          snprintf(s, 16, "%02x_%d", p, ++i);
         } else {
           p = tables[t].minline >> 5;
-          s = (char*) malloc(2+1);
-          sprintf(s, "%02x", p);
+          s = (char*) malloc(16);
+          snprintf(s, 16, "%02x", p);
         }
         tables[t].suffix = s;
       } else
